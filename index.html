@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kreator Burgerów – McStyle</title>
+
+    <!-- STYLE -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+</head>
+
+<body>
+
+<!-- 🔥 PRZYCISKI MOBILE -->
+<button id="openIngredients" class="mobile-btn left">☰ Składniki</button>
+<img src="img/logo.png" class="main-mobile-logo" alt="Logo">
+<button id="openJson" class="mobile-btn right">Panel ▶</button>
+
+<div class="builder">
+
+    <!-- ==========================================
+         LEWY PANEL – SKŁADNIKI
+    =========================================== -->
+    <div class="ingredients-list" id="ingredientsList">
+
+        <img src="img/logo.png" class="main-logo" alt="Logo">
+
+        <h2>Składniki</h2>
+
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Szukaj składnika..."
+            autocomplete="off"
+        >
+
+        <div class="ingredient-grid" id="ingredientsGrid"></div>
+    </div>
+
+    <!-- ==========================================
+         CENTRUM — PODGLĄD BURGERA 
+    =========================================== -->
+    <div class="preview">
+        <div id="burger"></div>
+    </div>
+
+    <!-- ==========================================
+         PRAWY PANEL — NAZWA + EXPORT + LISTA
+    =========================================== -->
+    <div class="right-panel" id="rightPanel">
+
+        <h2 id="burgerTitle">Twój Burger</h2>
+
+        <label for="burgerName" class="label-title">Nazwa burgera:</label>
+        <input 
+            type="text"
+            id="burgerName"
+            placeholder="Wpisz nazwę..."
+            autocomplete="off"
+        >
+        <ul id="burgerList" class="burger-list"></ul>
+
+        <button id="exportBtnRight" class="export-btn-large">
+            Pobierz PNG
+        </button>
+
+        <button id="exportManual" class="export-btn-large">
+            Pobierz Manual
+        </button>
+    </div>
+
+</div>
+
+<!-- CANVAS DO EKSPORTU -->
+<canvas id="exportCanvas" style="display:none;"></canvas>
+
+<!-- SCRIPTS -->
+<script type="module" src="js/app.js"></script>
+
+</body>
+</html>

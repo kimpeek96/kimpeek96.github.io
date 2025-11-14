@@ -1,0 +1,208 @@
+/* ============================================================
+   LAYOUT GRID – PRAWIDŁOWE 30% | 40% | 30%
+   (pixel-perfect alignment)
+============================================================ */
+
+.builder {
+    display: grid;
+    grid-template-columns: 1fr 1.33fr 1fr; /* idealne proporcje zamiast % */
+    height: 100vh;
+    width: 100%;
+
+    /* Gap wyrównany do baseline grid 16px */
+    gap: 16px;
+
+    padding-top: 0;
+    position: relative;
+}
+
+/* Trzy główne panele — spójne */
+.ingredients-list,
+.preview,
+.right-panel {
+    background: #fff9f1;
+    border-radius: var(--radius);
+    border: 1px solid #f2d7bd;
+    box-shadow: var(--shadow-soft);
+
+    /* Pixel-perfect smooth */
+    transition: left .35s ease, right .35s ease, transform .25s ease;
+}
+
+
+/* ============================================================
+   LEWY PANEL — SKŁADNIKI
+============================================================ */
+
+.ingredients-list {
+    padding: 24px; /* baseline */
+    overflow-y: auto;
+    border-right: 2px solid #f0d6ba;
+
+    /* wyrównanie panelu do środka */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 5;
+}
+
+/* Siatka składników */
+.ingredient-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 16px;
+    margin-top: 20px;
+}
+
+
+/* ============================================================
+   CENTER — BURGER
+============================================================ */
+
+.preview {
+    padding: 24px;
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;        /* PERFECT CENTER */
+    justify-content: space-around;
+    position: relative;
+}
+
+#burger {
+    width: 300px;
+    margin: 0;                 /* usuwa przesunięcia */
+    animation: burgerBreath 8s ease-in-out infinite;
+}
+
+
+/* ============================================================
+   PRAWY PANEL — NAZWA + EXPORT + LISTA
+============================================================ */
+
+.right-panel {
+    padding: 24px 24px 36px 24px;
+    border-left: 2px solid #f0d6ba;
+    overflow-y: auto;
+
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    /* Pixel-perfect alignment */
+    align-items: flex-start;
+}
+
+.right-panel h2 {
+    font-size: 24px;
+    font-weight: 800;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+.label-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+/* Nazwa burgera */
+#burgerName {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 14px;
+    border: 1px solid #d8c1a1;
+    background: #fffdf8;
+    font-size: 15px;
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.08);
+}
+
+/* Export */
+.export-btn-large {
+    width: 100%;
+    padding: 16px 0;
+    margin-top: 4px;  /* pixel grid */
+    font-size: 18px;
+    font-weight: 700;
+    border-radius: 16px;
+    border: none;
+    cursor: pointer;
+    background: #ffce00;
+    color: #2a1b0a;
+    box-shadow: var(--shadow-soft);
+}
+
+/* Lista — tytuł */
+.panel-subtitle {
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 16px;
+    margin-bottom: 6px;
+}
+
+
+/* ============================================================
+   MOBILE RESPONSIVE
+============================================================ */
+
+.mobile-btn {
+    display: none;
+    position: fixed;
+    top: 12px;
+    padding: 10px 16px;
+    background: #d62b1f;
+    border-radius: 14px;
+    border: none;
+    color: white;
+    z-index: 9999;
+    font-weight: 600;
+}
+
+.mobile-btn.right { right: 12px; }
+.mobile-btn.left  { left: 12px; }
+
+@media (max-width: 900px) {
+
+    .builder {
+        display: block;
+        height: auto;
+        padding-top: 80px;
+    }
+
+    /* LEWY PANEL */
+    .ingredients-list {
+        position: fixed;
+        left: -260px;
+        width: 260px;
+        height: 100vh;
+        top: 0;
+        z-index: 9980;
+        border-radius: 0;
+    }
+    .ingredients-list.open { left: 0; }
+
+    /* PRAWY PANEL */
+    .right-panel {
+        position: fixed;
+        right: -280px;
+        width: 280px;
+        height: 100vh;
+        top: 0;
+        z-index: 9985;
+        border-radius: 0;
+        padding-top: 90px;
+    }
+    .right-panel.open { right: 0; }
+
+    .mobile-btn { display: block; }
+
+    /* BURGER — SCROLL FIX */
+    .preview {
+        height: calc(100vh - 90px);
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}

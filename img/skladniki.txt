@@ -1,0 +1,48 @@
+Firmowy - Firmowy.png - Sos - 20g
+BBQ - BBQ.png - Sos - 20g
+Mango Mayo - MangoMayo - Sos - 20g
+Majonez - MayoSos.png - Sos - 20g
+Ketchup - Ketchup.png - Sos - 20g
+Sriracha Mayo - SrirachaMayo.png - Sos - 20g
+Aioli - Aioli.png - Sos - 20g
+Majonez Cytrynowy - MajonezCytrynowy.png  - Sos - 20g
+Korean BBQ - KoreanBBQ.png  - Sos - 20g
+Dip Serowy - DipSerowy.png - Sos - 20g
+Sezamowy  - Sezamowy.png- Sos - 20g
+Musztardowo Miodowy - MusztarodowoMiodowy.png  - Sos - 20g
+
+Pomidor - Pomidor.png - Warzywa - 2 szt
+Pikle - Pikle.png - Warzywa - 6 szt
+Szczypiorek - Szczypiorek.png - Warzywa -
+Cebula - Cebula.png - Warzywa - 2 szt
+Sałata - Salata.png - Warzywa -
+Jalapeno - Jalapeno.png - Warzywa - 5 szt
+Gruszka - Gruszka.png - Warzywa - 1 szt
+Cukinia - Cukinia.png - Warzywa - 6 szt
+
+Onion Rings - OnionRings - Extras - 3 szt
+Nachosy - Nachosy.png - Extras - 8 szt
+Bataty - Bataty.png - Extras - 6 szt
+Orzechy w miodzie - Orzechy.png - Extras - 1 szt
+Tabasco - Tabasco  - Extras - 5 szt
+Konfitura cebulowa - KonfituraCebulowa.png - Extras - 15g
+Konfitura porzeczkowa KonfituraPorzeczkowa.png - Extras - 15g
+Salsa pomidorowa - Salsa.png - Extras - 15g
+Guacamole - Guacamole.png - Extras - 15g
+Kotlet Vege Linda  - Vege.png - Extras - 1 szt
+
+Ser Cheddar - Cheddar.png - Ser - 1 szt
+Ser Mimollette - Mimollette.png - Ser - 1 szt
+Ser Gouda - Gouda.png - Ser - 1 szt
+Ser Kozi - Kozi.png - Ser - 1 szt
+Ser Halloumi - Halloumi.png - Ser - 1 szt
+Ser Blue - Blue.png - Ser - 1 szt
+
+Boczek - Boczek.png - Mięso - 1 szt
+Polędwiczka panierowana - Poledwiczka.png - Mięso - 3 szt
+Wołowina 200g - Wolowina200.png - Mięso - 1 szt
+Wołowina 100g - Wolowina100.png - Mięso - 1 szt
+Salami Picantte - Salami.png  - Mięso - 10 szt
+
+Bułka Brioche dół
+Bułka Broche góra 

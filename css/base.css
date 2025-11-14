@@ -1,0 +1,91 @@
+/* ============================================================
+   ROOT VARIABLES — DYNAMIC BURGER OVERLAP
+============================================================ */
+:root {
+    --overlap: -12px;
+    --radius: 22px;
+    --shadow-soft: 0 6px 16px rgba(0,0,0,0.12);
+    --shadow-strong: 0 8px 22px rgba(0,0,0,0.20);
+}
+
+/* ============================================================
+   GLOBAL – Elegant McDONALD'S STYLE
+============================================================ */
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #f7e9d7;
+    font-family: "Poppins", Arial, sans-serif;
+    color: #2a1b0a;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+* {
+    box-sizing: border-box;
+    transition: 0.25s ease;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-thumb {
+    background: #d62b1f;
+    border-radius: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #f3ddc7;
+}
+
+/* ============================================================
+   LOGO — DESKTOP & MOBILE
+============================================================ */
+
+.main-logo {
+    width: 100%;
+    display: block;
+    margin: 0 auto 20px auto;
+    filter: drop-shadow(0 6px 14px rgba(0,0,0,0.25));
+}
+.main-mobile-logo {
+    width: 260px;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    margin: 0;
+    display: none;
+    filter: drop-shadow(0 6px 14px rgba(0,0,0,0.25));
+}
+/* Desktop — logo w lewym panelu */
+@media (min-width: 901px) {
+    .main-logo {
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
+        margin-bottom: 25px;
+    }
+}
+
+/* Mobile — logo w środku ekranu */
+@media (max-width: 900px) {
+    .ingredients-list {
+        padding-top: 140px;
+    }
+    .main-mobile-logo {
+        display: block;
+    }
+
+    .main-logo {
+        width: 160px;
+        position: fixed;
+        top: 70px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 99999; /* nad panelami */
+        pointer-events: none;
+        margin: 0;
+        display: none;
+    }
+}

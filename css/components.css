@@ -1,0 +1,271 @@
+/* ============================================================
+   COMPONENTS.CSS — WIDOKI, INTERAKCJE, ANIMACJE
+============================================================ */
+
+/* ============================================================
+   WYSZUKIWARKA
+============================================================ */
+
+#searchInput {
+    width: 100%;
+    padding: 10px 14px;
+    border-radius: 14px;
+    border: 1px solid #e4c9aa;
+    font-size: 15px;
+    background: #fffdf8;
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.08);
+}
+#searchInput:focus {
+    border-color: #ffce00;
+    box-shadow: 0 0 0 2px rgba(255,206,0,0.28);
+}
+
+/* ============================================================
+   KAFELKI SKŁADNIKÓW — AUTO-LAYOUT
+============================================================ */
+
+.ingredient-grid {
+    display: grid;
+
+    /* klucz: kafelki układają się obok siebie gdy jest miejsce */
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+
+    gap: 18px;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.ingredient-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 12px;
+    border: 1px solid #f3d7bc;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.10);
+
+    text-align: center;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.25s ease;
+}
+
+.ingredient-card:hover {
+    background: #fff3e4;
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.16);
+}
+
+.ingredient-card img {
+    width: 85px;
+    height: 85px;
+    object-fit: contain;
+    margin-bottom: 8px;
+}
+
+.ingredient-label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.ingredient-subinfo {
+    font-size: 12px;
+    color: #7c6248;
+    margin-top: 2px;
+}
+
+/* Animacja kliknięcia */
+@keyframes cardBounce {
+    0%   { transform: scale(1); }
+    30%  { transform: scale(0.92); }
+    60%  { transform: scale(1.08); }
+    100% { transform: scale(1); }
+}
+.ingredient-card.clicked {
+    animation: cardBounce .32s ease;
+}
+
+/* ============================================================
+   BURGER — PREVIEW
+============================================================ */
+
+.preview {
+    padding: 24px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#burger {
+    width: 300px;
+    margin: 0;
+    animation: burgerBreath 8s ease-in-out infinite;
+    transform-origin: center bottom;
+}
+
+/* Warstwa burgera */
+.layer-container {
+    width: 250px;
+    margin: var(--overlap) auto;
+    position: relative;
+    cursor: grab;
+    transition: 0.25s ease;
+}
+
+.layer-container:hover {
+    z-index: 5;
+    transform: translateY(-2px) scale(1.03);
+}
+
+.layer-container img {
+    width: 100%;
+    border-radius: 16px;
+    filter: drop-shadow(0 5px 10px rgba(0,0,0,0.18));
+}
+
+.layer-container.dragging {
+    opacity: 0.55;
+    transform: scale(0.96);
+}
+
+/* X USUWANIA */
+.remove-layer {
+    position: absolute;
+    top: -12px;       /* nad obrazkiem */
+    right: -12px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: #d62b1f;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    z-index: 20;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+}
+
+.remove-layer:hover {
+    background: #b81b16;
+    transform: scale(1.15);
+}
+
+/* ============================================================
+   ANIMACJE WARSTW
+============================================================ */
+
+@keyframes layerDropOut {
+    0% { opacity: 1; transform: translateY(0) rotate(0) scale(1); }
+    40% { transform: translateY(40px) rotate(6deg) scale(0.96); opacity: 0.8; }
+    80% { transform: translateY(160px) rotate(-8deg) scale(0.88); opacity: 0.4; filter: blur(1px); }
+    100% { transform: translateY(260px) rotate(12deg) scale(0.8); opacity: 0; filter: blur(3px); }
+}
+.layer-drop-out {
+    animation: layerDropOut .52s ease forwards;
+}
+
+@keyframes dropIn {
+    0%   { transform: translateY(-80px) rotate(-6deg) scale(1.1); opacity: 0; }
+    60%  { transform: translateY(6px) rotate(3deg) scale(1.02); opacity: 1; }
+    100% { transform: translateY(0) rotate(0deg) scale(1); }
+}
+.layer-drop-in {
+    animation: dropIn .42s cubic-bezier(.25,1.4,.3,1) forwards;
+}
+
+/* ============================================================
+   ANIMACJA BURGERA — „ODDECH”
+============================================================ */
+
+@keyframes burgerBreath {
+    0%   { transform: scale(1) translateY(0); }
+    25%  { transform: scale(1.008, 1.012) translateY(-1px); }
+    50%  { transform: scale(1.012, 1.018) translateY(-2px); }
+    75%  { transform: scale(1.008, 1.012) translateY(-1px); }
+    100% { transform: scale(1) translateY(0); }
+}
+
+/* ============================================================
+   LISTA SKŁADNIKÓW — PRAWY PANEL
+============================================================ */
+
+.panel-subtitle {
+    font-size: 18px;
+    font-weight: 800;
+    margin-top: 22px;
+    margin-bottom: 10px;
+    color: #3a2a15;
+}
+
+.burger-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;             /* = szerokość przycisku export */
+    max-width: 100%;
+}
+
+.burger-list-item {
+    width: 100%;
+    display: grid;
+
+    /* nr | nazwa | ilość */
+    grid-template-columns: 40px 1fr auto;
+
+    align-items: center;
+
+    padding: 10px 14px;
+    margin-bottom: 8px;
+
+    background: #fff4e6;
+    border-radius: 12px;
+    border: 1px solid #f1d6b8;
+
+    font-size: 15px;
+    color: #2f1d0f;
+
+    box-shadow: inset 0 0 4px rgba(0,0,0,0.04);
+    transition: 0.2s ease;
+}
+
+/* Hover premium */
+.burger-list-item:hover {
+    background: #ffe9d2;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+
+/* NUMER WARSTWY */
+.layer-num {
+    text-align: center;
+    font-weight: 800;
+    color: #7a5228;
+}
+
+/* NAZWA */
+.layer-name {
+    font-weight: 600;
+    color: #3a2a15;
+    padding-left: 6px;
+    padding-right: 6px;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* ILOŚĆ */
+.layer-amount {
+    font-weight: 700;
+    color: #7b4f1c;
+    white-space: nowrap;
+    margin-left: 10px;
+}
